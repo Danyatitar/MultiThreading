@@ -3,7 +3,6 @@ package lab1.balls;
 public class BallThread extends Thread {
     private Ball b;
     private BallThread thread = null;
-
  
     public BallThread(Ball ball) {
         b = ball;
@@ -17,7 +16,6 @@ public class BallThread extends Thread {
         b = ball;
         this.thread = thread;
     }
-
 
     @Override
     public void run() {

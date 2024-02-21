@@ -13,7 +13,7 @@ public class Main {
        System.out.println("Synchronized method: " + counter.getCount());
        syncBlock(counter);
        System.out.println("Synchronized block: " + counter.getCount());
-        syncObj(counter);
+       block(counter);
         System.out.println("Block object: " + counter.getCount());
 
     }
@@ -22,7 +22,7 @@ public class Main {
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 100_000; i++) {
+                for (int i = 0; i < 100000; i++) {
                     counter.badInc();
                 }
             }
@@ -30,7 +30,7 @@ public class Main {
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 100_000; i++) {
+                for (int i = 0; i < 100000; i++) {
                     counter.badDec();
                 }
             }
@@ -47,12 +47,12 @@ public class Main {
         }
     }
 
-    private static void syncObj(Counter counter) {
+    private static void block(Counter counter) {
         final Lock lock = new ReentrantLock();
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 100_000; i++) {
+                for (int i = 0; i < 100000; i++) {
                     lock.lock();
                     counter.badInc();
                     lock.unlock();
@@ -62,7 +62,7 @@ public class Main {
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 100_000; i++) {
+                for (int i = 0; i < 100000; i++) {
                     lock.lock();
                     counter.badDec();
                     lock.unlock();
@@ -85,7 +85,7 @@ public class Main {
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 100_000; i++) {
+                for (int i = 0; i < 100000; i++) {
                     counter.incSyncBlock();
                 }
             }
@@ -93,7 +93,7 @@ public class Main {
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 100_000; i++) {
+                for (int i = 0; i < 100000; i++) {
                     counter.decSyncBlock();
                 }
             }
@@ -114,7 +114,7 @@ public class Main {
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 100_000; i++) {
+                for (int i = 0; i < 100000; i++) {
                     counter.increment();
                 }
             }
@@ -122,7 +122,7 @@ public class Main {
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 100_000; i++) {
+                for (int i = 0; i < 100000; i++) {
                     counter.decrement();
                 }
             }

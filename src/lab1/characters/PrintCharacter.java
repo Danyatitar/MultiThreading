@@ -4,7 +4,7 @@ public class PrintCharacter extends Thread {
     private final String character;
     private int times;
     private static final Object monitor = new Object();
-    private static volatile boolean turn = false; 
+    private static volatile boolean turn = true; 
 
     public PrintCharacter(String character, int times) {
         this.character = character;

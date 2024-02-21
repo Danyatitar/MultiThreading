@@ -38,10 +38,7 @@ class Ball {
             x = this.canvas.getWidth() / 2;
             y = this.canvas.getHeight() / 4;
 
-        }
-
-
-        
+        }     
     }
 
     public void setColor(Color color) {
