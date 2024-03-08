@@ -10,21 +10,21 @@ public class Task3Test {
     public static void main(String[] args) {
         RandomMatrix randomMatrixGenerator = new RandomMatrix();
 
-        final int MATRIX_SIZE = 1500;
+        final int MATRIX_SIZE = 2000;
         final int THREADS_COUNT = 4;
 
         Matrix matrixA = new Matrix(randomMatrixGenerator.generateRandomMatrix(MATRIX_SIZE, MATRIX_SIZE).getMatrix());
         Matrix matrixB = new Matrix(randomMatrixGenerator.generateRandomMatrix(MATRIX_SIZE, MATRIX_SIZE).getMatrix());
 
-        NativeCalculator sequentialCalculator = new NativeCalculator();
+        NativeCalculator nativeCalculator = new NativeCalculator();
         ParallelCalculator parallelCalculator = new ParallelCalculator();
         FoxCalculator foxCalculator = new FoxCalculator(matrixA, matrixB, THREADS_COUNT);
 
-        // Sequential test
+        // Native test
         long startTime = System.currentTimeMillis();
-        Matrix seqRes = new Matrix(sequentialCalculator.multiplyMatrix(matrixA, matrixB).getMatrix());
+        Matrix seqRes = new Matrix(nativeCalculator.multiplyMatrix(matrixA, matrixB).getMatrix());
         long endTime = System.currentTimeMillis();
-        System.out.println("Sequential: " + (endTime - startTime) + " ms " + "for " + MATRIX_SIZE + " matrix size");
+        System.out.println("Native: " + (endTime - startTime) + " ms " + "for " + MATRIX_SIZE + " matrix size");
 
         // Parallel test
         startTime = System.currentTimeMillis();
@@ -52,7 +52,6 @@ public class Task3Test {
                 break;
         }
 
-        if (!isError)
-            System.out.println("Results are consistent.");
+      
     }
 }

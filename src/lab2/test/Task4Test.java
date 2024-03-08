@@ -8,7 +8,7 @@ public class Task4Test {
         RandomMatrix randomMatrixGenerator = new RandomMatrix();
 
         var MATRIX_SIZE = 1500;
-        var THREADS_COUNT = 8;
+        var THREADS_COUNT = 64;
 
         var startTime = System.currentTimeMillis();
         var endTime = System.currentTimeMillis();
