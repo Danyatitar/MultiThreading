@@ -10,7 +10,7 @@ public class Task3Test {
     public static void main(String[] args) {
         RandomMatrix randomMatrixGenerator = new RandomMatrix();
 
-        final int MATRIX_SIZE = 2000;
+        final int MATRIX_SIZE = 1000;
         final int THREADS_COUNT = 4;
 
         Matrix matrixA = new Matrix(randomMatrixGenerator.generateRandomMatrix(MATRIX_SIZE, MATRIX_SIZE).getMatrix());

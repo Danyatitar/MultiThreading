@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         RandomMatrix randomMatrixGenerator = new RandomMatrix();
 
-        var SIZE = 3;
+        var SIZE = 4;
 
 
         var matrixA = new Matrix(
@@ -17,11 +17,11 @@ public class Main {
                         .generateRandomMatrix(SIZE, SIZE)
                         .getMatrix());
 
-        System.out.println("Matrix 3:");
+        System.out.println("Matrix A:");
         matrixA.print();
         System.out.println(" ----------");
 
-        System.out.println("Matrix 4:");
+        System.out.println("Matrix B:");
         matrixB.print();
         System.out.println(" ----------");
 

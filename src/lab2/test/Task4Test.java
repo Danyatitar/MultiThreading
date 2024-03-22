@@ -8,10 +8,7 @@ public class Task4Test {
         RandomMatrix randomMatrixGenerator = new RandomMatrix();
 
         var MATRIX_SIZE = 1500;
-        var THREADS_COUNT = 64;
-
-        var startTime = System.currentTimeMillis();
-        var endTime = System.currentTimeMillis();
+        var THREADS_COUNT = 16;
 
 
         var matrixA = new Matrix(
@@ -28,9 +25,9 @@ public class Task4Test {
         var foxCalculator = new lab2.FoxCalculator(matrixA, matrixB, THREADS_COUNT);
 
         // Parallel test
-        startTime = System.currentTimeMillis();
+        var startTime = System.currentTimeMillis();
         var parRes = new Matrix(parallelCalculator.multiplyMatrix(matrixA, matrixB, THREADS_COUNT).getMatrix());
-        endTime = System.currentTimeMillis();
+        var endTime = System.currentTimeMillis();
         System.out.println("Parallel: " + (endTime - startTime) + " ms " + "with " + THREADS_COUNT + " threads" );
 
         // Fox test
